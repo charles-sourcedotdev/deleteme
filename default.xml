@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!--
+    This file and CMakeLists.txt belong in the same git repository.
+    That repository URL is what gets passed to:
+
+        sourcefs repo init -u <url> -b main
+
+    The root project below (path=".") checks out that same repository at the
+    workspace root, so CMakeLists.txt is available to cmake after repo sync.
+  -->
+  <remote name="root"   fetch="https://github.com/charles-sourcedotdev/" />
+  <remote name="github" fetch="https://github.com/" />
+
+  <default remote="github" sync-j="4" />
+
+  <!-- Root project: provides the top-level CMakeLists.txt -->
+  <project name="deleteme" path="." remote="root" revision="main" />
+
+  <!--
+    External C/C++ libraries.  Chosen because:
+      - each has a self-contained CMakeLists.txt (no inter-dependencies)
+      - collectively produce ~300 translation units → good CAS exercise
+      - pinned to stable tags for reproducible builds
+  -->
+  <project name="madler/zlib"
+           path="external/zlib"
+           revision="v1.3.1" />
+
+  <project name="abseil/abseil-cpp"
+           path="external/abseil-cpp"
+           revision="20240722.0" />
+
+  <project name="google/googletest"
+           path="external/googletest"
+           revision="v1.15.2" />
+
+</manifest>
