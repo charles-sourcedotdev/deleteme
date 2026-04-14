@@ -26,14 +26,14 @@
   -->
   <project name="madler/zlib"
            path="external/zlib"
-           revision="v1.3.1" />
+           revision="refs/tags/v1.3.1" />
 
   <project name="abseil/abseil-cpp"
            path="external/abseil-cpp"
-           revision="20240722.0" />
+           revision="refs/tags/20240722.0" />
 
   <project name="google/googletest"
            path="external/googletest"
-           revision="v1.15.2" />
+           revision="refs/tags/v1.15.2" />
 
 </manifest>
