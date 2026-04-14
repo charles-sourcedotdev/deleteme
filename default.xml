@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <!--
-    This file and CMakeLists.txt belong in the same git repository.
-    That repository URL is what gets passed to:
-
-        sourcefs repo init -u <url> -b main
-
-    The root project below (path=".") checks out that same repository at the
-    workspace root, so CMakeLists.txt is available to cmake after repo sync.
-  -->
-  <remote name="root"   fetch="https://github.com/charles-sourcedotdev/" />
   <remote name="github" fetch="https://github.com/" />
 
   <default remote="github" sync-j="4" />
-
-  <!-- Root project: provides the top-level CMakeLists.txt -->
-  <project name="deleteme" path="." remote="root" revision="main" />
 
   <!--
     External C/C++ libraries.  Chosen because:
